@@ -12,12 +12,11 @@ class UserService {
 
     getByEmail(email) {
         return Rx.Observable.create(observer => {
-            const isValidEmail = this.EMAIL_REGEX.test(email);
-            if (!isValidEmail) {
-                observer.error('Not a valid email!');
-            }
-            User.findOne({email}, (err, user) => {
-                if (err) observer.error(err);
+            User.findOne({'auth.email': email}, (err, user) => {
+                if (err) {
+                    observer.error(err);
+                    console.log('errrrrrr', err);
+                }
                 observer.next(user)
             });
         });
@@ -25,12 +24,22 @@ class UserService {
 
     authenticate(email, password) {
         return this.getByEmail(email).map(user => {
-            if (bcrypt.compareSync(password, user.password)) {
+            if (!user) throw new Error('Այդ հասցեով օգտատեր չկա');
+            if (bcrypt.compareSync(password, user.auth.password)) {
                 return user;
             } else {
-                throw new Error('Incorrect password!');
+                throw new Error('Մուտքագրված գաղտնաբառը սխալ է');
             }
         })
+    }
+
+    getUser(_id) {
+        return Rx.Observable.create(observer => {
+            User.findOne({_id: _id}, {'auth.password': 0}, (err, user) => {
+                if (err) observer.error(err);
+                else observer.next(user);
+            });
+        });
     }
 
 
@@ -48,24 +57,24 @@ class UserService {
     validatePassword(password, confirmPassword) {
         return Rx.Observable.create(observer => {
             if (password !== confirmPassword) {
-                observer.error('Passwords don\'t match!');
+                observer.error({message: 'Passwords don\'t match!'});
             }
             if (!this.PASSWORD_REGEX.test(password)) {
-                observer.error('Password must contain at least one number, one character and contain at least 8 characters');
+                observer.error({message: 'Password must contain at least one number, one character and contain at least 8 characters'});
             }
             observer.next(void 0);
         })
     }
 
     createUser(userInfo) {
-        userInfo.password = bcrypt.hashSync(userInfo.password, 10);
+        userInfo.auth.password = bcrypt.hashSync(userInfo.auth.password, 10);
         return Rx.Observable.create((observer) => {
             const user = new User(userInfo);
-            user.save((err) => {
+            user.save((err, u) => {
                 if (err) {
                     observer.error('User Creation failed');
                 } else {
-                    observer.next(void 0);
+                    observer.next(u._id);
                 }
             })
         });
@@ -86,7 +95,7 @@ class UserService {
     getUsers(page) {
         return Rx.Observable.create(observer => {
             const query = User.find()
-                .select('-password')
+                .select('-auth.password')
                 .limit(20)
                 .skip(20 * (page - 1));
             query.exec((err, users) => {
@@ -96,6 +105,23 @@ class UserService {
                 observer.next({users, page});
             })
         })
+    }
+
+    changePassword(credentials) {
+        return this.validatePassword(credentials.password, credentials.confirmPassword)
+            .switchMap(() => {
+                return Rx.Observable.create(observer => {
+                    User.findOne({_id: credentials._id}, (err, user) => {
+                        if (err) observer.error({message: err});
+                        else {
+                            const password = bcrypt.hashSync(credentials.password, 10);
+                            user.auth.password = password;
+                            user.save();
+                            observer.next(void 0);
+                        }
+                    });
+                });
+            })
     }
 }
 

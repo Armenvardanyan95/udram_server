@@ -7,6 +7,9 @@ const userSchema = new mongoose.Schema({
         dateOfBirth: String,
         gender: {type: String, enum: [1, 2]},
         ssn: String,
+    },
+    identification: {
+        identificationType: {type: Number, enum: [1, 2, 3]},
         idCard: {
             number: String,
             issuedBy: String,
@@ -18,20 +21,26 @@ const userSchema = new mongoose.Schema({
             issuedBy: String,
             dateOfIssue: String,
             validityDate: String,
-            scan: String
         }
     },
     auth: {
         email: String,
         password: String
     },
-    address: {
+    additional: {
+        province: String,
         city: String,
-        zip: String,
-        street: String,
-        apt: String
+        address: String,
+        other: String
     },
-    mobilePhone: String
+    request: {
+        mobilePhone: String,
+        description: String,
+        amount: Number,
+        status: {type: Number, enum: [1, 2, 3], default: 1}
+    },
+    passportScan: String,
+    acraScan: String
 });
 
 const User = mongoose.model('User', userSchema);
