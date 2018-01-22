@@ -271,7 +271,8 @@ class EmailService {
             <!-- START CENTERED WHITE CONTAINER -->
             <span class="preheader">${preview}</span>
             <table class="main">
-
+            
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-name="Layer 4" width="479.9999911444529" height="162.85712860068452" style=""><rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none" class="" style=""/><defs><style>.cls-1{fill:url(#linear-gradient);}.cls-2{fill:url(#linear-gradient-2);}.cls-3{fill:url(#linear-gradient-3);}.cls-4{fill:url(#linear-gradient-4);}.cls-5{fill:url(#linear-gradient-5);}.cls-6{fill:url(#linear-gradient-6);}.cls-7{fill:url(#linear-gradient-7);}.cls-8{fill:url(#linear-gradient-8);}.cls-9{fill:url(#linear-gradient-9);}.cls-10{fill:#ededed;}</style><linearGradient id="linear-gradient" x1="645.0499877929688" y1="448.2200012207031" x2="707.9500122070312" y2="448.2200012207031" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffff6a"/><stop offset="0.02" stop-color="#fcf866"/><stop offset="0.11" stop-color="#f4e25b"/><stop offset="0.22" stop-color="#edd153"/><stop offset="0.34" stop-color="#e8c54c"/><stop offset="0.52" stop-color="#e6be49"/><stop offset="1" stop-color="#e5bc48"/></linearGradient><linearGradient id="linear-gradient-2" x1="258.30999755859375" y1="473.19000244140625" x2="274.67999267578125" y2="473.19000244140625" xlink:href="#linear-gradient"/><linearGradient id="linear-gradient-3" x1="426.29998779296875" y1="472.69000244140625" x2="714.2999877929688" y2="472.69000244140625" xlink:href="#linear-gradient"/><linearGradient id="linear-gradient-4" x1="322.760009765625" y1="473.19000244140625" x2="409.760009765625" y2="473.19000244140625" xlink:href="#linear-gradient"/><linearGradient id="linear-gradient-5" x1="271.92999267578125" y1="473.19000244140625" x2="358.92999267578125" y2="473.19000244140625" xlink:href="#linear-gradient"/><linearGradient id="linear-gradient-6" x1="297.3399963378906" y1="447.7799987792969" x2="384.3399963378906" y2="447.7799987792969" xlink:href="#linear-gradient"/><linearGradient id="linear-gradient-7" x1="297.3399963378906" y1="498.6000061035156" x2="384.3399963378906" y2="498.6000061035156" xlink:href="#linear-gradient"/><linearGradient id="linear-gradient-8" x1="419.4700012207031" y1="472.69000244140625" x2="424.3900146484375" y2="472.69000244140625" xlink:href="#linear-gradient"/><linearGradient id="linear-gradient-9" x1="412.04998779296875" y1="472.69000244140625" x2="416.9700012207031" y2="472.69000244140625" xlink:href="#linear-gradient"/></defs><title>u_dram_6</title><g class="currentLayer" style=""><title>Layer 1</title><path class="cls-1" d="M397.8571319580078,38.97285278320311 H460.8571319580078 a0,0 0 0 1 0,0 v29.11 a3.67,3.67 0 0 1 -3.67,3.67 H401.57713195800784 a3.67,3.67 0 0 1 -3.67,-3.67 V38.97285278320311 A0,0 0 0 1 397.8571319580078,38.97285278320311 z" id="svg_1"/><path class="cls-2" d="M19.34713195800782,88.52285278320312 a8.19,8.19 0 1 1 8.19,-8.19 A8.2,8.2 0 0 1 19.34713195800782,88.52285278320312 zm0,-12.870000000000001 a4.69,4.69 0 1 0 4.69,4.69 A4.69,4.69 0 0 0 19.34713195800782,75.64285278320312 z" id="svg_2"/><path class="cls-3" d="M179.15713195800782,76.83285278320312 h285 a3,3 0 0 1 3,3 v0 a3,3 0 0 1 -3,3 h-285 a0,0 0 0 1 0,0 v-6 a0,0 0 0 1 0,0 z" id="svg_3"/><path class="cls-4" d="M119.1171319580078,123.83285278320318 a43.5,43.5 0 1 1 43.5,-43.5 A43.55,43.55 0 0 1 119.1171319580078,123.83285278320318 zm0,-83 a39.5,39.5 0 1 0 39.5,39.5 A39.54,39.54 0 0 0 119.1171319580078,40.83285278320312 z" id="svg_4"/><path class="cls-5" d="M68.28713195800782,123.83285278320318 a43.5,43.5 0 1 1 43.5,-43.5 A43.55,43.55 0 0 1 68.28713195800782,123.83285278320318 zm0,-83 a39.5,39.5 0 1 0 39.5,39.5 A39.54,39.54 0 0 0 68.28713195800782,40.83285278320312 z" id="svg_5"/><path class="cls-6" d="M93.69713195800779,98.4228527832031 a43.5,43.5 0 1 1 43.5,-43.5 A43.55,43.55 0 0 1 93.69713195800779,98.4228527832031 zm0,-83 a39.5,39.5 0 1 0 39.5,39.5 A39.54,39.54 0 0 0 93.69713195800779,15.422852783203098 z" id="svg_6"/><path class="cls-7" d="M93.69713195800779,149.24285278320315 a43.5,43.5 0 1 1 43.5,-43.5 A43.55,43.55 0 0 1 93.69713195800779,149.24285278320315 zm0,-83 a39.5,39.5 0 1 0 39.5,39.5 A39.54,39.54 0 0 0 93.69713195800779,66.24285278320315 z" id="svg_7"/><rect class="cls-8" x="172.32713317871094" y="74.5428466796875" width="4.920000076293945" height="10.569999694824219" rx="2.4600000381469727" ry="2.4600000381469727" id="svg_8"/><rect class="cls-9" x="164.90711975097656" y="72.25283813476562" width="4.920000076293945" height="15.170000076293945" rx="2.4600000381469727" ry="2.4600000381469727" id="svg_9"/><rect class="cls-10" x="406.40711975097656" y="38.97283935546875" width="15" height="15" id="svg_10"/><rect class="cls-10" x="439.4771270751953" y="38.97283935546875" width="12.600000381469727" height="15" id="svg_11"/></g></svg>
               <!-- START MAIN CONTENT AREA -->
               <tr>
                 <td class="wrapper">
@@ -279,9 +280,8 @@ class EmailService {
                     <tr>
                       <td>
                         <p>Բարեվ Ձեզ</p>
-                        <p>Շնորհակալություն UDram-ի ծառայություններից օգտվելու համար</p>
                         <p>${text}</p>
-                        <p>Good luck! Hope it works.</p>
+                        <p>Շնորհակալություն UDram-ի ծառայություններից օգտվելու համար</p>
                       </td>
                     </tr>
                   </table>
@@ -296,7 +296,7 @@ class EmailService {
               <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <td class="content-block">
-                    <span class="apple-link">Company Inc, 3 Abbey Road, San Francisco CA 94102</span>
+                    <span class="apple-link">UDram վարկային միջնորդ, ք․ Երևան, Դավիթաշեն, Եղվարդի խճ․ (ավտոպարկ)</span>
                   </td>
                 </tr>
               </table>
@@ -318,9 +318,30 @@ class EmailService {
             to: email,
             from: 'armenvardanyan95@gmail.com',
             subject: 'Ձեր գրանցումը հաջողվել է',
-            html: this.buildEmail(`Հարգելի ${fullName}, Դուք հաջողությամբ գրանցվել եք UDram համակարգում։ Ձեր հայտը շուտով կուսումնասիրվի և դուք կստանաք ցանուցում`, 'Ձեր գրանցումը հաջողվել է')
+            html: this.buildEmail(`Հարգելի ${fullName}, Դուք հաջողությամբ գրանցվել եք UDram համակարգում։ Ձեր հայտը շուտով կուսումնասիրվի և դուք կստանաք ծանուցում`, 'Ձեր գրանցումը հաջողվել է')
         };
 
+        this.transporter.sendMail(mailOptions);
+    }
+
+    rejectMail(fullName, email) {
+        const mailOptions = {
+            to: email,
+            from: 'armenvardanyan95@gmail.com',
+            subject: 'Ձեր գրանցումը հաջողվել է',
+            html: this.buildEmail(`Հարգելի ${fullName}, Ձեր տվյալները մանրակրկիտ ուսումնասիրելով, Udram վարկային միջնորդ կազմակերպությունը եկավ այն եզրահանգման, որ տվյալ հատկանիշներով Ձեզ հնարավոր չէ տրամադրել ցանկալի գումարը։  \n Շնորհակալություն UDram-ին դիմելու համար`)
+        };
+        console.log(fullName, email, 'drrrr')
+        this.transporter.sendMail(mailOptions);
+    }
+
+    approveMail(fullName, email) {
+        const mailOptions = {
+            to: email,
+            from: 'armenvardanyan95@gmail.com',
+            subject: 'Ձեր գրանցումը հաջողվել է',
+            html: this.buildEmail(`Հարգելի ${fullName} Ձեր հայտը ընդունվել է Udram կազմակերպության կողմից։ Այցելեք Udram կազմակերպության գրասենյակ (Դավիթաշեն, Եղվարթի խճ․ , Ավտոպարկ կամ զանգահարեք )`)
+        };
         this.transporter.sendMail(mailOptions);
     }
 
@@ -329,7 +350,7 @@ class EmailService {
             to: email,
             from: 'armenvardanyan95@gmail.com',
             subject: 'Դուք մոռացել եք Ձեր գաղտնաբառը',
-            html: this.buildEmail(`Հարգելի ${fullName}, Ձեր գաղտնաբառը վերականագնելու համար անցեք հետեվյալ <a href="${url}">հղումով</a>`, `Գաղտնաբառի վերականգնում`),
+            html: this.buildEmail(`Հարգելի ${fullName}, Ձեր գաղտնաբառը վերականագնելու համար անցեք հետեվյալ <a href="${url}">հղումով</a> <br><br> Եթե դուք չեք պահանջել գաղտնաբառի վերականգնում, ապա ուղղակի անտեսեք այս նամակը`, `Գաղտնաբառի վերականգնում`),
         };
 
         this.transporter.sendMail(mailOptions);

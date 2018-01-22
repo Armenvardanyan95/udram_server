@@ -11,7 +11,7 @@ class UserController {
     }
 
     changePassportScan(req, res) {
-        const newData = {passportScan: req.file.path.replace('\\', '/')};
+        const newData = {passportScan: req.file.path.split('\\')[1]};
         this.userService.updateUser(req.body.id, newData)
             .subscribe(
                 () => res.json({message: 'Successfully uploaded file!'}),
@@ -20,7 +20,7 @@ class UserController {
     }
 
     changeAcraScan(req, res) {
-        const newData = {acraScan: req.file.path.replace('\\', '/')};
+        const newData = {acraScan: req.file.path.split('\\')[1]};
         this.userService.updateUser(req.body.id, newData)
             .subscribe(
                 () => res.json({message: 'Successfully uploaded file!'}),
@@ -54,8 +54,21 @@ class UserController {
             );
     }
 
+    createWorker(req, res) {
+        const userInfo = req.body;
+        this.userService
+            .validateWorkerEmail(userInfo.email)
+            .switchMap(() => this.userService.createWorker(req.body))
+            .subscribe(
+                (userID) => {
+                    res.json({message: 'User successfully created', id: userID});
+                },
+                err => res.status(422).send(err)
+            );
+    }
+
     getUsers(req, res) {
-        this.userService.getUsers(req.query.page)
+        this.userService.getUsers(req.query.page, req.query.fullName)
             .subscribe(
                 users => res.json(users),
                 err => res.status(400).send(err)
@@ -79,6 +92,24 @@ class UserController {
             );
     }
 
+    getWorkerToken(req, res) {
+        const email = req.body.email;
+        const password = req.body.password;
+
+        this.userService.authenticateWorker(email, password)
+            .subscribe(
+                user => {
+                    const jwt = res.jwt({
+                        fullName: user.fullName,
+                        isAdmin: user.isAdmin,
+                        _id: user._id
+                    });
+                    res.json({token: jwt.token})
+                },
+                err => res.status(422).json({message: err.message})
+            );
+    }
+
     currentUser(req, res) {
         const userInfo = decode(req.headers['authorization'].split(' ')[1]);
         this.userService.getUser(userInfo._id)
@@ -86,6 +117,21 @@ class UserController {
                 user => res.json(user),
                 err => res.status(422).json({message: err.message})
             );
+    }
+
+    changeRequestStatus(req, res) {
+        this.userService.changeRequestStatus(req.body.status, req.body.id)
+            .subscribe(
+                (user) => {
+                    res.json({message: 'Success'});
+                    console.log('assssss', req.body.status);
+                    if (req.body.status == 3) {
+                        console.log('assssss2345678', req.body.status);
+                        this.emailService.rejectMail(user.fullName, user.email);
+                    }
+                },
+                err => res.status(422).json({message: err.message})
+            )
     }
 
     forgotPassword(req, res) {

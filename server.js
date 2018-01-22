@@ -70,4 +70,10 @@ app.patch('/updateUser', jwt.valid(), (req, res) => users.updateUser(req, res));
 
 app.post('/check-email', (req, res) => users.checkEmailUniqueness(req, res));
 
+app.post('/admin/workers/', (req, res) => users.createWorker(req, res));
+
+app.post('/admin-token', (req, res) => users.getWorkerToken(req, res));
+
+app.post('/admin/change-status', (req, res) => users.changeRequestStatus(req, res));
+
 app.listen(3000);
