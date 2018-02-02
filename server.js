@@ -7,6 +7,10 @@ const mime = require('mime');
 const jwt = require('jwt-express');
 const cookieParser = require('cookie-parser');
 
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').load();
+}
+
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, './uploads/')
@@ -21,7 +25,16 @@ var upload = multer({ storage: storage });
 
 const UserController = require('./controllers/user.controller');
 
-mongoose.connect('mongodb://localhost/vark', { useMongoClient: true });
+const mongoOptions = {useMongoClient: true};
+
+if (process.env.NODE_ENV === 'production') {
+    mongoOptions.auth = {
+        user: process.env.MONGO_USER,
+        pass: process.env.MONGO_PASS
+    }
+}
+
+mongoose.connect(process.env.MONGO_ADDRESS, mongoOptions);
 
 const app = express();
 const users = new UserController();
@@ -46,12 +59,14 @@ app.use(jwt.init('vark', {cookies: false}));
 
 app.use(express.static('uploads'));
 
+
 app.post('/passport', upload.single('scan'), (req, res) => users.changePassportScan(req, res));
 
 app.post('/acra', upload.single('scan'), (req, res) => users.changeAcraScan(req, res));
 
 app.get('/', (req, res) => {
-    res.send('API is stable')
+    console.log('I AM HERE');
+    res.send('UDram API JAN');
 });
 
 app.get('/users', jwt.valid(), (req, res) => users.getUsers(req, res));
@@ -76,4 +91,4 @@ app.post('/admin-token', (req, res) => users.getWorkerToken(req, res));
 
 app.post('/admin/change-status', (req, res) => users.changeRequestStatus(req, res));
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);

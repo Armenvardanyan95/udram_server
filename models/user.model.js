@@ -37,10 +37,11 @@ const userSchema = new mongoose.Schema({
         mobilePhone: String,
         description: String,
         amount: Number,
-        status: {type: Number, enum: [1, 2, 3], default: 1}
-    },
-    passportScan: String,
-    acraScan: String
+        status: {type: Number, enum: [1, 2, 3], default: 1},
+        isEmployed: Boolean,
+        hasHistory: Boolean,
+        isDifficult: Boolean
+    }
 });
 
 const User = mongoose.model('User', userSchema);

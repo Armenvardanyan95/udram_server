@@ -8,8 +8,8 @@ class EmailService {
         this.transporter = mailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'armenvardanyan95@gmail.com',
-                pass: '16Horsepower'
+                user: process.env.EMAIL,
+                pass: process.env.EMAIL_PASS
             }
         });
     }
@@ -296,7 +296,7 @@ class EmailService {
               <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <td class="content-block">
-                    <span class="apple-link">UDram վարկային միջնորդ, ք․ Երևան, Դավիթաշեն, Եղվարդի խճ․ (ավտոպարկ)</span>
+                    <span class="apple-link">UDram վարկային միջնորդ, ք․ Երևան, Դավիթաշեն, 3 թաղ, 19/3 (ավտոպարկ)</span>
                   </td>
                 </tr>
               </table>
@@ -316,7 +316,7 @@ class EmailService {
     registrationEmail(fullName, email) {
         const mailOptions = {
             to: email,
-            from: 'armenvardanyan95@gmail.com',
+            from: process.env.EMAIL,
             subject: 'Ձեր գրանցումը հաջողվել է',
             html: this.buildEmail(`Հարգելի ${fullName}, Դուք հաջողությամբ գրանցվել եք UDram համակարգում։ Ձեր հայտը շուտով կուսումնասիրվի և դուք կստանաք ծանուցում`, 'Ձեր գրանցումը հաջողվել է')
         };
@@ -327,7 +327,7 @@ class EmailService {
     rejectMail(fullName, email) {
         const mailOptions = {
             to: email,
-            from: 'armenvardanyan95@gmail.com',
+            from: process.env.EMAIL,
             subject: 'Ձեր գրանցումը հաջողվել է',
             html: this.buildEmail(`Հարգելի ${fullName}, Ձեր տվյալները մանրակրկիտ ուսումնասիրելով, Udram վարկային միջնորդ կազմակերպությունը եկավ այն եզրահանգման, որ տվյալ հատկանիշներով Ձեզ հնարավոր չէ տրամադրել ցանկալի գումարը։  \n Շնորհակալություն UDram-ին դիմելու համար`)
         };
@@ -338,7 +338,7 @@ class EmailService {
     approveMail(fullName, email) {
         const mailOptions = {
             to: email,
-            from: 'armenvardanyan95@gmail.com',
+            from: process.env.EMAIL,
             subject: 'Ձեր գրանցումը հաջողվել է',
             html: this.buildEmail(`Հարգելի ${fullName} Ձեր հայտը ընդունվել է Udram կազմակերպության կողմից։ Այցելեք Udram կազմակերպության գրասենյակ (Դավիթաշեն, Եղվարթի խճ․ , Ավտոպարկ կամ զանգահարեք )`)
         };
@@ -348,7 +348,7 @@ class EmailService {
     forgotPasswordEmail(email, fullName, url) {
         const mailOptions = {
             to: email,
-            from: 'armenvardanyan95@gmail.com',
+            from: process.env.EMAIL,
             subject: 'Դուք մոռացել եք Ձեր գաղտնաբառը',
             html: this.buildEmail(`Հարգելի ${fullName}, Ձեր գաղտնաբառը վերականագնելու համար անցեք հետեվյալ <a href="${url}">հղումով</a> <br><br> Եթե դուք չեք պահանջել գաղտնաբառի վերականգնում, ապա ուղղակի անտեսեք այս նամակը`, `Գաղտնաբառի վերականգնում`),
         };

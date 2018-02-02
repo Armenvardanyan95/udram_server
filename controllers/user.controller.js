@@ -39,6 +39,7 @@ class UserController {
     }
 
     createUser(req, res) {
+        console.log('I AM HERE CREAING USER')
         const userInfo = req.body;
         this.userService
             .validateEmail(userInfo.auth.email)
